@@ -1,24 +1,31 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+In this project we will see how does run rake task and rake task can be schedule with whenever Gem
 
-Things you may want to cover:
+whenever gem steps!
+-----------------------------------------------------------------------
+Installation
+$ gem install whenever
+Or with Bundler in your Gemfile.
 
-* Ruby version
+gem 'whenever', require: false
+Getting started
+$ cd /apps/my-great-project
+$ bundle exec wheneverize .
+This will create an initial config/schedule.rb file for you (as long as the config folder is already present in your project).
 
-* System dependencies
+The whenever command
+The whenever command will simply show you your schedule.rb file converted to cron syntax. It does not read or write your crontab file.
 
-* Configuration
+$ cd /apps/my-great-project
+$ bundle exec whenever
+To write your crontab file for your jobs, execute this command:
 
-* Database creation
+$ whenever --update-crontab
 
-* Database initialization
+ To run in local host!
+--------------------------------------------------------------------
 
-* How to run the test suite
+To update your local crontab in development mode, you'll need to run the whenever command manually, instead of relying on the included Capistrano tasks to do it for you. whenever --update-crontab --set environment=development should do the trick.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+From there, you can run crontab -l to ensure that your crontab file was written. Your job should be running every 2 minutes now. Note, you won't ever see any text in your console; the runner occurs in a new process
