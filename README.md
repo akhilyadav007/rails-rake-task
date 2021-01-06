@@ -38,6 +38,8 @@ From there, you can run crontab -l to ensure that your crontab file was written.
 #run this below command on local host for schedular whenever gem use
 
 crontab -r
+
 --update-crontab --set environment=development
+
 crontab -l
 
